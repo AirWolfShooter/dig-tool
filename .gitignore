@@ -11,3 +11,5 @@ DigTool.Spec
 custom_patterns.json
 .vscode
 .prettierrc
+main.spec
+plans.txt

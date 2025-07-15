@@ -2,6 +2,7 @@ import warnings
 import os
 import sys
 import gc
+import random
 
 from utils.system_utils import (
     check_dependencies,
@@ -1745,10 +1746,16 @@ class DigTool:
                             ):
                                 walk_duration = direction.get("duration")
                             else:
-                                walk_duration = self.get_param("walk_duration")
+                                if self.get_param('auto_walk_enabled'):
+                                    walk_duration = self.get_param('walk_duration')
+                                elif self.get_param('ranged_auto_walk_enabled'):
+                                    min_walk_duration = self.get_param('walk_min_duration')
+                                    max_walk_duration = self.get_param('walk_max_duration')
+                                    walk_range_duration = random.randint(min_walk_duration, max_walk_duration)
+                                    walk_duration = walk_range_duration
+                                
 
                             move_completed_time = current_time_ms + walk_duration + 300
-                            print(f'[Auto Walk Enabled] Walk Duration:{self.get_param('walk_duration')}')
 
                 elif (
                     auto_walk_state == "click_to_start"

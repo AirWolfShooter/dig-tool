@@ -873,6 +873,7 @@ class AutomationManager:
                     walk_duration = base_duration * duration_multiplier
 
                     if total_items > 35 or initial_decrease > 0:
+                        print(f"Dynamic walkspeed: total_items={total_items} (collected={items_collected}+initial={initial_item_count}), formula_reduction={formula_reduction:.3f}, initial_decrease={initial_decrease:.3f}, total_reduction={total_reduction:.3f}, multiplier={duration_multiplier:.2f}x, duration={walk_duration:.3f}s")
                         logger.debug(
                             f"Dynamic walkspeed: total_items={total_items} (collected={items_collected}+initial={initial_item_count}), formula_reduction={formula_reduction:.3f}, initial_decrease={initial_decrease:.3f}, total_reduction={total_reduction:.3f}, multiplier={duration_multiplier:.2f}x, duration={walk_duration:.3f}s"
                         )
