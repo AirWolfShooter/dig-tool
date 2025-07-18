@@ -2226,3 +2226,4 @@ class CustomPatternWindow:
                 self.unsaved_changes_label.config(text="✓ Saved", foreground="green")
            
                 safe_schedule_ui_update(self.window, lambda: self.unsaved_changes_label.config(text=""), 2000)
+
